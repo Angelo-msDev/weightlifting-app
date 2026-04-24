@@ -1,4 +1,4 @@
-const URL_API = "https://weightlifting-app-4sfo.onrender.com";
+const URL_API = "https://weightlifting-app-4sfo.onrender.com/exercicios";
 
 const form = document.getElementById('exercicio-form');
 const listaContainer = document.getElementById('lista-exercicios');
