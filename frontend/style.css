@@ -84,3 +84,43 @@ button:hover {
     width: auto;
     padding: 5px 10px;
 }
+
+#install-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    border-top: 2px solid var(--primary);
+    padding: 14px 20px;
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.5);
+}
+
+#install-banner p {
+    margin: 0;
+    font-size: 13px;
+    flex: 1;
+    line-height: 1.4;
+}
+
+.install-banner-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.install-banner-actions button {
+    margin: 0;
+    padding: 8px 14px;
+    width: auto;
+    font-size: 13px;
+}
+
+#btn-install-close {
+    background: #333;
+    color: var(--text);
+}
