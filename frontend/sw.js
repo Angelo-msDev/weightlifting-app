@@ -5,7 +5,8 @@ const assets = [
   './style.css',
   './script.js',
   './manifest.json',
-  'frontend/imagens/2964514.png'
+  './imagens/192.png',
+  './imagens/512.png'
 ];
 
 // Instalação do Service Worker e Cache dos arquivos
