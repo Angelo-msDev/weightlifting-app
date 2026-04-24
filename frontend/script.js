@@ -81,11 +81,15 @@ async function deletarExercicio(id) {
 // Inicializa a lista ao abrir o app
 buscarExercicios();
 
-// Registro do Service Worker (Essencial para o PWA)
+// Registro do Service Worker com escopo explícito
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log('Service Worker registrado com sucesso!', reg))
-            .catch(err => console.error('Erro ao registrar Service Worker:', err));
+        navigator.serviceWorker.register('./sw.js', { scope: './' })
+            .then(reg => {
+                console.log('Service Worker registrado com sucesso! Escopo:', reg.scope);
+            })
+            .catch(err => {
+                console.error('Erro ao registrar Service Worker:', err);
+            });
     });
 }
