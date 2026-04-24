@@ -18,5 +18,12 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+"description": "O Weightlifting App é seu parceiro de treino definitivo. Monitore suas cargas, séries e repetições com uma interface focada em performance e usabilidade mobile-first.",
+"orientation": "portrait",
+"id": "weightlifting-app-angelo",
+"categories": [
+  "fitness", 
+  "lifestyle", 
+  "sports"]
 }
