@@ -1,0 +1,17 @@
+{
+  "name": "Weightlifting App",
+  "short_name": "MyWorkout",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#00ff41",
+  "description": "Gerenciador de treinos para musculação",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2964/2964514.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
