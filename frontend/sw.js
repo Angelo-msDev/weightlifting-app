@@ -6,7 +6,9 @@ const assets = [
   './script.js',
   './manifest.json',
   './img/192.png',
-  './img/512.png'
+  './img/512.png',
+  './img/screenshot-mobile.png',
+  './img/screenshot-desktop.png'
 ];
 
 // Instalação do Service Worker e Cache dos arquivos
