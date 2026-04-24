@@ -17,7 +17,7 @@ async function buscarExercicios() {
 
 // 2. FUNÇÃO PARA RENDERIZAR NA TELA
 function renderizarLista(exercicios) {
-    listaContainer.innerHTML = ""; // Limpa a lista atual
+    listaContainer.innerHTML = ""; 
 
     if (exercicios.length === 0) {
         listaContainer.innerHTML = "<p>Nenhum treino registrado ainda.</p>";
@@ -58,8 +58,8 @@ form.addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
-            form.reset(); // Limpa os campos
-            buscarExercicios(); // Atualiza a lista na tela
+            form.reset(); 
+            buscarExercicios(); 
         }
     } catch (error) {
         alert("Erro ao salvar exercício.");
@@ -81,11 +81,11 @@ async function deletarExercicio(id) {
 // Inicializa a lista ao abrir o app
 buscarExercicios();
 
-
-//Registro do SW
+// Registro do Service Worker (Essencial para o PWA)
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service Worker registrado!', reg))
-      .catch(err => console.error('Erro ao registrar Service Worker:', err));
-  });
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('Service Worker registrado com sucesso!', reg))
+            .catch(err => console.error('Erro ao registrar Service Worker:', err));
+    });
+}
