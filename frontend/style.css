@@ -86,12 +86,42 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
+/* Container que agrupa os botões Editar e Deletar */
+.card-acoes {
+    display: flex;
+    gap: 8px; /* Espaço entre o lápis e o X */
+    flex-shrink: 0; /* Impede que os botões esmaguem em telas pequenas */
+}
+
+/* Botão de Editar (Lápis) */
+.btn-edit {
+    background: #2196F3; /* Azul para diferenciar do criar/deletar */
+    color: white;
+    width: auto;
+    padding: 6px 10px;
+    margin-top: 0; /* Remove a margem superior padrão dos seus botões */
+    font-size: 14px;
+}
+
+.btn-edit:hover {
+    background: #1976D2;
+}
+
+/* Ajuste no Botão de Deletar (X) */
 .btn-delete {
     background: #ff4444;
+    color: white;
     width: auto;
-    padding: 5px 10px;
+    padding: 6px 12px;
+    margin-top: 0; /* Alinha com o botão de editar */
+    font-size: 14px;
+}
+
+.btn-delete:hover {
+    background: #cc0000;
 }
 
 #install-banner {
