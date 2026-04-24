@@ -81,15 +81,19 @@ async function deletarExercicio(id) {
 // Inicializa a lista ao abrir o app
 buscarExercicios();
 
-// Registro do Service Worker com escopo explícito
+// Registro do Service Worker
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js', { scope: './' })
-            .then(reg => {
-                console.log('Service Worker registrado com sucesso! Escopo:', reg.scope);
-            })
-            .catch(err => {
-                console.error('Erro ao registrar Service Worker:', err);
-            });
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      // Se houver uma atualização esperando, avisa o SW para assumir o controle
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            newWorker.postMessage({ type: 'SKIP_WAITING' });
+          }
+        });
+      });
     });
+  });
 }
