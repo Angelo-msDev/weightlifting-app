@@ -1,7 +1,7 @@
 {
   "name": "Weightlifting App",
   "short_name": "Treino",
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0d0d0d",
   "theme_color": "#00ff41",
@@ -21,7 +21,7 @@
   ],
   "description": "O Weightlifting App é seu parceiro de treino definitivo. Monitore suas cargas, séries e repetições com uma interface focada em performance e usabilidade mobile-first.",
   "orientation": "portrait",
-  "id": "weightlifting-app-angelo",
+  "id": "/",
   "categories": [
     "fitness", 
     "lifestyle", 
