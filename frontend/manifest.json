@@ -25,5 +25,22 @@
   "categories": [
     "fitness", 
     "lifestyle", 
-    "sports"]
+    "sports"],
+  
+  "screenshots": [
+  {
+    "src": "img/screenshot-mobile.jpg",
+    "sizes": "1220x2712",
+    "type": "image/jpg",
+    "form_factor": "narrow",
+    "label": "Tela principal do Weightlifting App no celular"
+  },
+  {
+    "src": "img/screenshot-desktop.png",
+    "sizes": "1919x932",
+    "type": "image/png",
+    "form_factor": "wide",
+    "label": "Interface de gerenciamento de treinos no computador"
+  }
+]
 }
