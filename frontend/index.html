@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weightlifting App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Weightlifting App</h1>
+    </header>
+
+    <main>
+        <section id="form-section">
+            <h3>Novo Exercício</h3>
+            <form id="exercicio-form">
+                <input type="hidden" id="exercicio-id">
+                <input type="text" id="nome" placeholder="Nome do exercício (ex: Supino)" required>
+                <input type="text" id="grupoMuscular" placeholder="Grupo Muscular" required>
+                <div class="row">
+                    <input type="number" id="series" placeholder="Séries" required>
+                    <input type="number" id="repeticoes" placeholder="Reps" required>
+                </div>
+                <input type="number" id="carga" placeholder="Carga (kg)" required>
+                <button type="submit" id="btn-salvar">Salvar Treino</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="lista-section">
+            <h3>Meus Exercícios</h3>
+            <div id="lista-exercicios">
+                <p>Carregando treinos...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
