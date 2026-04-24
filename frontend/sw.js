@@ -5,7 +5,7 @@ const assets = [
   './style.css',
   './script.js',
   './manifest.json',
-  'https://cdn-icons-png.flaticon.com/512/2964/2964514.png'
+  'frontend/imagens/2964514.png'
 ];
 
 // Instalação do Service Worker e Cache dos arquivos
