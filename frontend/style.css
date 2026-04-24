@@ -98,17 +98,17 @@ button:hover {
 
 /* Botão de Editar (Lápis) */
 .btn-edit {
-    background: #2196F3; /* Azul para diferenciar do criar/deletar */
-    color: white;
+    /*background: #2196F3; /* Azul para diferenciar do criar/deletar */
+    /*color: white;*/
     width: auto;
     padding: 6px 10px;
     margin-top: 0; /* Remove a margem superior padrão dos seus botões */
     font-size: 14px;
 }
 
-.btn-edit:hover {
+/*.btn-edit:hover {
     background: #1976D2;
-}
+}*/
 
 /* Ajuste no Botão de Deletar (X) */
 .btn-delete {
