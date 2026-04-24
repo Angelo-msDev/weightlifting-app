@@ -80,3 +80,13 @@ async function deletarExercicio(id) {
 
 // Inicializa a lista ao abrir o app
 buscarExercicios();
+
+
+//Registro do SW
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service Worker registrado!', reg))
+      .catch(err => console.error('Erro ao registrar Service Worker:', err));
+  });
+}
