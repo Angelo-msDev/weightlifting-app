@@ -1,30 +1,23 @@
 const CACHE_NAME = 'weightlifting-v1';
-
-// Arquivos que o app vai salvar para funcionar offline
 const assets = [
   './',
   './index.html',
   './style.css',
   './script.js',
-  './manifest.json'
+  './manifest.json',
+  'https://cdn-icons-png.flaticon.com/512/2964/2964514.png'
 ];
 
-// Instalação: Salva os arquivos básicos
+// Instalação do Service Worker e Cache dos arquivos
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log('Cache aberto com sucesso');
-      return cache.addAll(assets).catch(err => console.log('Aviso: Alguns arquivos não foram cacheados', err));
+      return cache.addAll(assets);
     })
   );
 });
 
-// Ativação: Limpa caches antigos
-self.addEventListener('activate', event => {
-  console.log('Service Worker ativo!');
-});
-
-// Estratégia de Busca: Tenta o Cache primeiro, se não tiver, vai na Rede
+// Responde com os arquivos do cache quando estiver offline
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
