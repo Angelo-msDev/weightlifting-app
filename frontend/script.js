@@ -90,3 +90,50 @@ if ('serviceWorker' in navigator) {
       .catch(err => console.error('Erro ao registrar Service Worker:', err));
   });
 }
+
+// Banner de instalação PWA
+(function () {
+  const banner = document.getElementById('install-banner');
+  const btnInstall = document.getElementById('btn-install');
+  const btnClose = document.getElementById('btn-install-close');
+  const installText = document.getElementById('install-text');
+
+  const isStandalone = () =>
+    window.matchMedia('(display-mode: standalone)').matches ||
+    !!window.navigator.standalone;
+
+  if (isStandalone()) return;
+
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+
+  if (isIOS) {
+    installText.textContent = 'Para instalar: toque em  Compartilhar e depois "Adicionar à Tela de Início"';
+    btnInstall.style.display = 'none';
+    banner.style.display = 'flex';
+  }
+
+  let deferredPrompt;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    banner.style.display = 'flex';
+  });
+
+  btnInstall.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    banner.style.display = 'none';
+  });
+
+  btnClose.addEventListener('click', () => {
+    banner.style.display = 'none';
+  });
+
+  window.addEventListener('appinstalled', () => {
+    banner.style.display = 'none';
+    deferredPrompt = null;
+  });
+}());
