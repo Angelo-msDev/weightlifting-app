@@ -29,9 +29,9 @@
   
   "screenshots": [
   {
-    "src": "img/screenshot-mobile.jpg",
-    "sizes": "1220x2712",
-    "type": "image/jpg",
+    "src": "img/screenshot-mobile.png",
+    "sizes": "388x842",
+    "type": "image/png",
     "form_factor": "narrow",
     "label": "Tela principal do Weightlifting App no celular"
   },
