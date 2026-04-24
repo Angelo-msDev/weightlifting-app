@@ -1,49 +1,21 @@
-const CACHE_NAME = 'weightlifting-v2'; // Mudei para v2 para forçar o navegador a atualizar
-const assets = [
-  './',
-  './index.html',
-  './style.css',
-  './script.js',
-  './manifest.json',
-  './img/192.png',
-  './img/512.png',
-  './img/screenshot-mobile.png',
-  './img/screenshot-desktop.png'
-];
+// Service Worker usando a estratégia StaleWhileRevalidate do Workbox
+const CACHE = "weightlifting-cache-v1";
 
-// Instalação: Cacheia os arquivos
-self.addEventListener('install', event => {
-  self.skipWaiting(); // Força o SW a se tornar o ativo imediatamente
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(assets);
-    })
-  );
+// Importa o Workbox do CDN do Google
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
-// Ativação: Limpa caches antigos (Isso dá muitos pontos no PWABuilder)
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
-      );
-    })
-  );
-  return self.clients.claim();
-});
-
-// Estratégia de busca: Cache First, falling back to Network
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request).catch(() => {
-        // Se a rede falhar e não estiver no cache, você poderia retornar uma página offline.html aqui
-        if (event.request.mode === 'navigate') {
-          return caches.match('./index.html');
-        }
-      });
-    })
-  );
-});
+// Estratégia: StaleWhileRevalidate
+// Ele entrega o que está no cache rápido (pro app abrir instantaneamente) 
+// e atualiza o cache em segundo plano se houver internet.
+workbox.routing.registerRoute(
+  new RegExp('/*'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: CACHE
+  })
+);
