@@ -7,7 +7,7 @@
   "theme_color": "#00ff41",
   "icons": [
     {
-      "src": "weightlifting-appfrontend/imagens/2964514.png",
+      "src": "weightlifting-app/frontend/imagens/2964514.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
